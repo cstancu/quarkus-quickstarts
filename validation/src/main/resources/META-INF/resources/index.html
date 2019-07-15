@@ -2,92 +2,120 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
-    <title>Book Validator</title>
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/patternfly/3.24.0/css/patternfly.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/patternfly/3.24.0/css/patternfly-additions.min.css">
+  <meta charset="UTF-8">
+  <title>Book Validator</title>
+  <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/patternfly/3.24.0/css/patternfly.min.css">
+  <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/patternfly/3.24.0/css/patternfly-additions.min.css">
 </head>
 
 <body>
-    <nav class="navbar navbar-default navbar-pf" role="navigation">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="/">
-                <p><strong>>> Book Validator!</strong></p>
-            </a>
-        </div>
-    </nav>
-    <div class="container-fluid">
-        <div class="row-fluid hidden" id="result">
-            <br />
-            <div id="suc" class="col-md-6 col-md-offset-2 toast-pf alert alert-success">
-                <span class="pficon pficon-ok"></span>
-                <p class="message"></p>
-            </div>
-            <div id="err" class="col-md-6 col-md-offset-2 toast-pf alert alert-warning">
-                <span class="pficon pficon-warning-triangle-o"></span>
-                <p class="message"></p>
-            </div>
-        </div>
-
-        <div class="row-fluid">
-            <br />
-            <form>
-                <div class="form-group row-fluid">
-                    <label for="title" class="col-sm-2 col-form-label">Title</label>
-                    <div class="col-sm-7">
-                        <input type="text" class="form-control" id="title" placeholder="Book title">
-                    </div>
-                    <div class=col-sm-2">
-                        <em>Must not be blank</em>
-                    </div>
-                </div>
-                <div class="form-group row-fluid">
-                    <label for="author" class="col-sm-2 col-form-label">Author</label>
-                    <div class="col-sm-7">
-                        <input type="text" class="form-control" id="author" placeholder="Book author">
-                    </div>
-                    <div class=col-sm-2">
-                        <em>Must not be blank</em>
-                    </div>
-                </div>
-                <div class="form-group row-fluid">
-                    <label for="page" class="col-sm-2 col-form-label">Number of pages</label>
-                    <div class="col-sm-7">
-                        <input type="number" class="form-control" id="pages" placeholder="Number of pages">
-                    </div>
-                    <div class=col-sm-2">
-                        <em>Must be positive</em>
-                    </div>
-                </div>
-                <div class="form-group row-fluid">
-                    <div class="col-sm-10">
-                        <button id="try-manual-validation" type="button" class="btn btn-primary">Try me - Manual validation</button>
-                        <button id="try-end-point-method-validation" type="button" class="btn btn-primary">Try me - End point method validation</button>
-                        <button id="try-service-method-validation" type="button" class="btn btn-primary">Try me - Service method validation</button>
-
-                        <button id="clear" type="button" class="btn btn-danger">Reset</button>
-                    </div>
-                </div>
-            </form>
-        </div>
+<nav class="navbar navbar-default navbar-pf" role="navigation">
+  <div class="navbar-header">
+    <a class="navbar-brand" href="/">
+      <p><strong>>> Book Validator!</strong></p>
+    </a>
+  </div>
+</nav>
+<div class="container-fluid">
+  <div class="row-fluid hidden" id="result">
+    <br/>
+    <div id="suc" class="col-md-6 col-md-offset-2 toast-pf alert alert-success">
+      <span class="pficon pficon-ok"></span>
+      <p class="message"></p>
     </div>
+    <div id="err" class="col-md-6 col-md-offset-2 toast-pf alert alert-warning">
+      <span class="pficon pficon-warning-triangle-o"></span>
+      <p class="message"></p>
+    </div>
+  </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/patternfly/3.24.0/js/patternfly.min.js"></script>
+  <div class="row-fluid">
+    <br/>
+    <form>
+      <div class="form-group row-fluid">
+        <label for="title" class="col-sm-2 col-form-label">Title</label>
+        <div class="col-sm-7">
+          <input type="text" class="form-control" id="title" placeholder="Book title">
+        </div>
+        <div class=col-sm-2">
+          <em>Must not be blank</em>
+        </div>
+      </div>
+      <div class="form-group row-fluid">
+        <label for="author" class="col-sm-2 col-form-label">Author</label>
+        <div class="col-sm-7">
+          <input type="text" class="form-control" id="author" placeholder="Book author">
+        </div>
+        <div class=col-sm-2">
+          <em>Must not be blank</em>
+        </div>
+      </div>
+      <div class="form-group row-fluid">
+        <label for="pages" class="col-sm-2 col-form-label">Number of pages</label>
+        <div class="col-sm-7">
+          <input type="number" class="form-control" id="pages" placeholder="Number of pages">
+        </div>
+        <div class=col-sm-2">
+          <em>Must be positive</em>
+        </div>
+      </div>
+      <div class="form-group row-fluid">
+        <label for="publicationDate" class="col-sm-2 col-form-label">Publication date</label>
+        <div class="col-sm-7">
+          <input type="date" class="form-control" id="publicationDate" placeholder="Publication date">
+        </div>
+        <div class=col-sm-2">
+          <em>Must be a past date</em>
+        </div>
+      </div>
+      <div class="form-group row-fluid">
+        <label for="contactEmail" class="col-sm-2 col-form-label">Contact email</label>
+        <div class="col-sm-7">
+          <input type="email" class="form-control" id="contactEmail" placeholder="Contact email">
+        </div>
+        <div class=col-sm-2">
+          <em>Must be a well-formed email address</em>
+        </div>
+      </div>
+      <div class="form-group row-fluid">
+        <div class="col-sm-10">
+          <button id="try-manual-validation" type="button" class="btn btn-primary">Try me - Manual validation</button>
+          <button id="try-end-point-method-validation" type="button" class="btn btn-primary">Try me - End point method
+            validation
+          </button>
+          <button id="try-service-method-validation" type="button" class="btn btn-primary">Try me - Service method
+            validation
+          </button>
 
-    <script type="text/javascript">
+          <button id="clear" type="button" class="btn btn-danger">Reset</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/patternfly/3.24.0/js/patternfly.min.js"></script>
+
+<script type="text/javascript">
         $(document).ready(function () {
             $("#try-manual-validation").click(function (e) {
                 e.preventDefault();
                 var pages = $("#pages").val();
                 var title = $("#title").val();
                 var author = $("#author").val();
+                var publicationDate = $("#publicationDate").val();
+                var contactEmail = $("#contactEmail").val();
 
                 var book = {
                     "title": title,
                     "author": author,
-                    "pages": pages
+                    "pages": pages,
+                    "publicationDate": publicationDate,
+                    "contactEmail": contactEmail
                 }
 
                 $.ajax({
@@ -120,11 +148,15 @@
                 var pages = $("#pages").val();
                 var title = $("#title").val();
                 var author = $("#author").val();
+                var publicationDate = $("#publicationDate").val();
+                var contactEmail = $("#contactEmail").val();
 
                 var book = {
                     "title": title,
                     "author": author,
-                    "pages": pages
+                    "pages": pages,
+                    "publicationDate": publicationDate,
+                    "contactEmail": contactEmail
                 }
 
                 $.ajax({
@@ -157,11 +189,15 @@
                 var pages = $("#pages").val();
                 var title = $("#title").val();
                 var author = $("#author").val();
+                var publicationDate = $("#publicationDate").val();
+                var contactEmail = $("#contactEmail").val();
 
                 var book = {
                     "title": title,
                     "author": author,
-                    "pages": pages
+                    "pages": pages,
+                    "publicationDate": publicationDate,
+                    "contactEmail": contactEmail
                 }
 
                 $.ajax({
@@ -194,10 +230,13 @@
                 $("#pages").val("");
                 $("#title").val("");
                 $("#author").val("");
+                $("#publicationDate").val("");
+                $("#contactEmail").val("");
                 $("#result").hide();
             })
         })
-    </script>
+    
+</script>
 </body>
 
 </html>
